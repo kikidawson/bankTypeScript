@@ -8,4 +8,9 @@ export class Account {
     getBalance(): number {
         return this.balance
     }
+
+    deposit(amount: number) {
+        this.balance += amount
+        return amount
+    }
 }
