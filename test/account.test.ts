@@ -27,6 +27,12 @@ describe('bank account', () => {
             account.deposit(10)
             expect(account.getBalance()).to.equal(10)
         })
+
+        it('adds multiple deposited amounts to balance', () => {
+            account.deposit(10)
+            account.deposit(5)
+            expect(account.getBalance()).to.equal(15)
+        })
     })
 
 })
