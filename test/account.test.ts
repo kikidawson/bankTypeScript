@@ -37,17 +37,23 @@ describe('bank account', () => {
 
     describe('withdraw', () => {
         it('returns 10 if 10 is withdrawn', () => {
+            account.deposit(10)
             expect(account.withdraw(10)).to.equal(10)
         })
 
         it('returns 5 if 5 is withdrawn', () => {
+            account.deposit(10)
             expect(account.withdraw(5)).to.equal(5)
         })
 
         it('subtracts withdrawn amount from balance', () => {
+            account.deposit(10)
             account.withdraw(10)
-            expect(account.getBalance()).to.equal(-10)
+            expect(account.getBalance()).to.equal(0)
+        })
+
+        it('should throw error if withdrawal more than balance', () => {
+            expect(() => account.withdraw(10)).to.throw(Error, /Insufficient funds/)
         })
     })
-
 })

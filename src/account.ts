@@ -15,6 +15,8 @@ export class Account {
     }
 
     withdraw(amount: number) {
+        if (amount > this.balance) throw Error('Insufficient funds')
+
         this.balance -= amount
         return amount
     }
