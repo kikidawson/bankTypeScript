@@ -4,7 +4,7 @@ import {expect} from 'chai'
 describe('bank account', () => {
     let account: Account
 
-    beforeEach(function() {
+    beforeEach(() => {
         account = new Account()
     })
 
