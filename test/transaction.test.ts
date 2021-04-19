@@ -2,24 +2,32 @@ import {Transaction} from '../src/transaction'
 import {expect} from 'chai'
 
 describe('transaction', () => {
+    let transaction
+
+    beforeEach(() => {
+        transaction = new Transaction("19/04/2021", 10, 0, 10)
+    })
     describe('date', () => {
         it('records the date of transaction', () => {
-            let transaction = new Transaction("19/04/2021", 10, 0)
             expect(transaction.getDate()).to.equal("19/04/2021")
         })
     })
 
     describe('credit', () => {
         it('records the value being deposited', () => {
-            let transaction = new Transaction("19/04/2021", 10, 0)
             expect(transaction.getCredit()).to.equal(10)
         })
     })
 
     describe('debit', () => {
         it('records the value being withdrawn', () => {
-            let transaction = new Transaction("19/04/2021", 10, 0)
             expect(transaction.getDebit()).to.equal(0)
+        })
+    })
+
+    describe('balance', () => {
+        it('records the new balance', () => {
+            expect(transaction.getBalance()).to.equal(10)
         })
     })
 })
