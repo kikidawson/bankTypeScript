@@ -56,4 +56,12 @@ describe('bank account', () => {
             expect(() => account.withdraw(10)).to.throw(Error, /Insufficient funds/)
         })
     })
+
+    describe('statement', () => {
+        it('prints a chronological list of transactions', () => {
+            account.deposit(20)
+            account.withdraw(10)
+            expect(account.printStatement()).to.equal("date || credit || debit || balance\n20/04/2021 ||  || 10.00 || 10.00\n20/04/2021 || 20.00 ||  || 20.00\n")
+        })
+    })
 })
